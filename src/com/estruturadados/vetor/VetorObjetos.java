@@ -55,6 +55,15 @@ public class VetorObjetos {
 		}
 		return this.elementos[posicao];
 	}
+	
+	public int busca(Object elemento) {
+		for(int i=0; i<this.tamanho; i++) {
+			if(this.elementos[i].equals(elemento)) {
+				return i;
+			}
+		}
+		return -1;
+	}
 
 	public void remove(int posicao) {
 		if(!(posicao>=0 && posicao<tamanho)) {
@@ -66,15 +75,6 @@ public class VetorObjetos {
 			this.elementos[i] = this.elementos[i+1];
 		}
 		this.tamanho--;
-	}
-
-	public int busca(Object elemento) {
-		for(int i=0; i<this.tamanho; i++) {
-			if(this.elementos[i].equals(elemento)) {
-				return i;
-			}
-		}
-		return -1;
 	}
 
 	public int tamanho() {
