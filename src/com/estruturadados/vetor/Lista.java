@@ -71,6 +71,15 @@ public class Lista<T> {
 		}
 		return -1;
 	}
+	
+	public boolean contem(T elemento) {
+		/*int pos = busca(elemento);
+		if(pos > -1) {
+			return true;
+		}
+		return false;*/
+		return busca(elemento) > -1;
+	}
 
 	public void remove(int posicao) {
 		if(!(posicao>=0 && posicao<tamanho)) {
