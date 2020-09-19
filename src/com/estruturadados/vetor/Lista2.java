@@ -20,7 +20,7 @@ public class Lista2<T> extends EstruturaEstatica<T>{
 		return super.adiciona(posicao, elemento);
 	}
 	
-	/*public void remove(int posicao) {
+	public void remove(int posicao) {
 		super.remove(posicao);
 	}
 
@@ -38,5 +38,5 @@ public class Lista2<T> extends EstruturaEstatica<T>{
 			}
 		}
 		return -1;
-	}*/
+	}
 }

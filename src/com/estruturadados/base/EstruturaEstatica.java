@@ -2,9 +2,10 @@ package com.estruturadados.base;
 
 public class EstruturaEstatica<T> {
 
-	private T[] elementos;
-	private int tamanho;
+	protected T[] elementos;
+	protected int tamanho;
 
+	@SuppressWarnings("unchecked")
 	public EstruturaEstatica(int capacidade) {
 		this.elementos = (T[]) new Object[capacidade]; //Solução do livro Effecting Java
 		this.tamanho = 0;
@@ -43,6 +44,7 @@ public class EstruturaEstatica<T> {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	private void aumentaCapacidade() {
 		if(this.tamanho == this.elementos.length) {
 			T[] elementosNovos = (T[]) new Object[this.elementos.length*2];
@@ -51,6 +53,18 @@ public class EstruturaEstatica<T> {
 			}
 			this.elementos = elementosNovos;
 		}
+	}
+	
+	public void remove(int posicao) {
+		if(!(posicao>=0 && posicao<tamanho)) {
+			throw new IllegalArgumentException("Posição inválida");
+		}
+
+		//Mover todos os elementos
+		for(int i=posicao; i<tamanho-1; i++) {
+			this.elementos[i] = this.elementos[i+1];
+		}
+		this.tamanho--;
 	}
 
 	public int tamanho() {
